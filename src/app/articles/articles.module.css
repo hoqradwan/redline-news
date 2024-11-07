@@ -1,0 +1,6 @@
+.articles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+  gap: 10px; /* Adjust space between cards */
+  padding: 20px;
+}
