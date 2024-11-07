@@ -20,13 +20,13 @@ h6 {
 }
 
 /* You can also define custom global utility classes here */
-.text-center {
+/* .text-center {
   text-align: center;
-}
+} */
 
 .container {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
+  /* padding: 0 20px; */
 }

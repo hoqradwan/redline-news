@@ -15,7 +15,7 @@
 
 .image {
   width: 100%;
-  height: 200px; /* Fixed height for images to align */
+  height: auto; /* Fixed height for images to align */
   object-fit: cover; /* Ensures image is contained and fills the space */
   border-radius: 4px;
   margin-bottom: 8px;

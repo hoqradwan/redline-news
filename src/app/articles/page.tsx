@@ -1,5 +1,5 @@
 "use client"
-import ArticleDetails from '@/components/ArticleDetails/ArticleDetails';
+import ArticleCard from '@/components/ArticleCard/ArticleCard';
 import { Article } from '@/types/Articles';
 import React, { useEffect, useState } from 'react';
 import styles from "./articles.module.css"
@@ -21,10 +21,10 @@ const Articles = () => {
     }, [])
     return (
         <div className='container'>
-            <h1>All Articles</h1>
+            <h1>Articles</h1>
             <div className={styles.articles}>
-                {articles.map((article: Article, index) => (<ArticleDetails
-                    key={index} article={article}></ArticleDetails>))}
+                {articles.map((article: Article, index) => (<ArticleCard
+                    key={index} article={article}></ArticleCard>))}
             </div>
 
         </div >
