@@ -11,13 +11,15 @@ const useFetchArticles = () => {
     useEffect(() => {
         const fetchArticles = async () => {
             try {
-                const response = await fetch('https://newsapi.org/v2/everything?q=bitcoin&apiKey=a1297a7b31e44ab8beb64ad03daaec87');
+                const response = await fetch('/api/articles');
+                if (!response.ok) throw new Error("Failed to fetch articles");
+
                 const data = await response.json();
                 setArticles(data.articles);
-                setLoading(false);
             } catch (err) {
-                setError("Error fetching articles")
-                console.log(err)
+                setError("Error fetching articles");
+                console.error(err);
+            } finally {
                 setLoading(false);
             }
         };
