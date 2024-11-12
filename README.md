@@ -1,8 +1,8 @@
-### RedLine News
+# RedLine News
 
 [Project Link](https://redline-news-client.vercel.app/)
 
-#### To Run This Project:
+### To Run This Project:
 
 1. After cloning the project in your PC from github open it in a code editor and run command **npm install**
 2. Provide the command **npm run dev** in the terminal to run this project
