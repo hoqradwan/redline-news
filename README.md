@@ -10,7 +10,8 @@
 ## Explanation of technical choices
 
 - I have chosen Next JS because it provides a simple routing system and really fast in production.
-- As programming language Typescript is used to get rid from unnecessary errors and ensure type safety.
+- TypeScript is used to improve type safety and reduce errors, making development more reliable and maintainable.
+- I opted for raw CSS over Tailwind. Since this is a simple news article app, raw CSS provides all the styling control I need without extra complexity. Tailwind is great for larger projects, but here it felt like overkill, and using plain CSS keeps the bundle smaller and the design flexible. This way, I can quickly adapt styles as needed without being tied to a framework.
 
 ## Assumptions
 
