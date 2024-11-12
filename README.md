@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### RedLine News
 
-## Getting Started
+[Project Link](https://redline-news-client.vercel.app/)
 
-First, run the development server:
+#### To Run This Project:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. After cloning the project in your PC from github open it in a code editor and run command **npm install**
+2. Provide the command **npm run dev** in the terminal to run this project
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Explanation of technical choices
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- I have chosen Next JS because it provides a simple routing system and really fast in production.
+- As programming language Typescript is used to get rid from unnecessary errors and ensure type safety.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Assumptions
 
-## Learn More
+**API Reliability:** We’re banking on the idea that the external news API is reliable enough to provide data whenever users load the app. If it’s down, users won’t see any articles, but we assume this won’t happen often.
 
-To learn more about Next.js, take a look at the following resources:
+**Data Structure Consistency:** We’re assuming the data format from the API won’t change. If the API changes its structure, parts of the app might break because we wouldn’t automatically adapt to it.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**API Rate Limits:** The app assumes that the API’s rate limits can handle the expected traffic. If we go over the limit, users won’t get new data, but we’re assuming the current limits should be enough.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+**Stable User Connection:** Since the app fetches data from an external source, it assumes users have a good internet connection. No offline mode is planned.
 
-## Deploy on Vercel
+**Client-Side Rendering Is Fine:** Since the data is updated dynamically, we’re assuming client-side rendering will work well enough for most users. For SEO, it’s a bit of a trade-off, as articles won’t be pre-rendered.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Trade-Offs
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**No Backend:** We save on infrastructure costs and keep the setup simple by skipping a backend. However, this means we can’t cache data ourselves, so every request depends entirely on the API’s speed.
+
+**Client-Side Fetching:** This setup is straightforward and means we can directly interact with the API, but it does expose our API key to anyone who knows where to look (even with restrictions, this can be a security risk).
+Also, client-side rendering might not be the best for SEO since articles are fetched on load.
+
+**Minimal Error Handling:** Keeping things simple means fewer checks on potential errors from the API. If the API has an issue, users might see broken pages, but this approach keeps our code lighter.
+
+**Real-Time Data Only:** Fetching articles live each time ensures users see the latest news, but it also means slower load times, especially if the API itself is slow.
+
+**TypeScript:** We chose TypeScript to prevent common errors, which should help during development and avoid runtime errors.
+The downside is that if the API structure changes, we’ll need to update our types, which can be a bit of a hassle.
