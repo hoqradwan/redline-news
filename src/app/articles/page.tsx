@@ -14,12 +14,11 @@ const Articles = () => {
     }
     return (
         <div className='container'>
-            <h1>Articles</h1>
+            <h1 style={{ textAlign: "center" }}>All Articles</h1>
             <div className={styles.articles}>
                 {articles.map((article: Article, index) => (<ArticleCard
                     key={index} article={article}></ArticleCard>))}
             </div>
-
         </div >
     );
 };
